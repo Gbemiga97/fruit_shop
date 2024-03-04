@@ -23,7 +23,7 @@ const featuredFruits = [
         desc: "Sweet and juicy",
         shadow: "red",
         img: require(`../assets/images/peach.png`),
-        color: opacity => `rgba(255, 170, 157) ${opacity}`
+        color: opacity => `rgba(255, 170, 157, ${opacity})`
     },
     {
         name: 'Black Grapes',
@@ -57,7 +57,8 @@ const featuredFruits = [
 
 
 const data = {
-    categories
+    categories,
+    featuredFruits
 }
 
 export default data

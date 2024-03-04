@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import tw from 'twrnc'
 import { Bars3CenterLeftIcon, ShoppingCartIcon } from 'react-native-heroicons/solid'
 import { data } from '../utils'
+import FruitCard from '../components/FruitCard'
+import FruitCardSales from '../components/FruitCardSales'
 
 
 export default function HomeScreen() {
@@ -48,6 +50,29 @@ export default function HomeScreen() {
                             }
                         </TouchableOpacity>
                     ))
+                }
+            </ScrollView>
+        </View>
+
+        {/* Fruit Carousel */} 
+        <View style={tw`mt-8`}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {
+                data.featuredFruits.map((fruit, i) => <FruitCard fruit={fruit} key={i}  />)
+            }
+        </ScrollView>
+        </View>
+
+        {/* Hot Sales */}
+        <View style={tw`mt-8 pl-5 gap-y-1`}>
+            <Text style={tw`text-gray-500 text-xl font-bold`}>
+                Hot Sales
+            </Text>
+            <ScrollView 
+            horizontal showsHorizontalScrollIndicator={false} style={tw`overflow-x-visible`}
+            >
+                {
+                    data.featuredFruits.reverse().map((fruit, i) => <FruitCardSales key={i} fruit={fruit} />)
                 }
             </ScrollView>
         </View>
