@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import tw from 'twrnc'
 
@@ -6,9 +7,14 @@ export default function FruitCardSales({fruit}) {
 
     const {img, price, shadow, color} = fruit
 
+    const navigation = useNavigation()
+
+
   return (
     <View style={tw`mr-6`}>
-      <TouchableOpacity style={tw`flex-row justify-center -mb-9 shadow-xs  z-20`}>
+      <TouchableOpacity
+      onPress={() => navigation.navigate('Product', {...fruit, color: color(1)})}
+      style={tw`flex-row justify-center -mb-9 shadow-xs  z-20`}>
         <Image source={img} style={{
             width: 65, height: 65,
             shadowColor: shadow,
