@@ -6,11 +6,13 @@ import { Bars3CenterLeftIcon, ShoppingCartIcon } from 'react-native-heroicons/so
 import { data } from '../utils'
 import FruitCard from '../components/FruitCard'
 import FruitCardSales from '../components/FruitCardSales'
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function HomeScreen() {
 
     const [activeCategory, setActiveCategory] = useState("Oranges")
+    const navigation = useNavigation()
 
   return (
     <SafeAreaView style={tw`flex-1 bg-orange-50 pt-6`}>
@@ -19,6 +21,7 @@ export default function HomeScreen() {
         <Bars3CenterLeftIcon size="30" color="black" />        
         <TouchableOpacity 
         style={tw`p-2 rounded-xl bg-orange-100`}
+        onPress={() => navigation.navigate('Cart')}
         >
             <ShoppingCartIcon size='25' color='orange' />
         </TouchableOpacity>
